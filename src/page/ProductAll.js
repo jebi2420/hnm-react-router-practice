@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Container, Row, Col } from 'react-bootstrap';
 import ProductCard from '../component/ProductCard';
 
 const ProductAll = () => {
@@ -21,7 +22,14 @@ const ProductAll = () => {
 
   return (
     <div>
-      <ProductCard />
+        <Container>
+            <Row>
+                <Col lg={3}><ProductCard /></Col>
+                <Col lg={3}><ProductCard /></Col>
+                <Col lg={3}><ProductCard /></Col>
+                <Col lg={3}><ProductCard /></Col>
+            </Row>
+        </Container>
     </div>
   )
 }
