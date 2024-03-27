@@ -24,10 +24,12 @@ const ProductAll = () => {
     <div>
         <Container>
             <Row>
-                <Col lg={3}><ProductCard /></Col>
-                <Col lg={3}><ProductCard /></Col>
-                <Col lg={3}><ProductCard /></Col>
-                <Col lg={3}><ProductCard /></Col>
+                {productList.map( (item) => (
+                        <Col lg={3}>
+                            <ProductCard item={item}/>
+                        </Col>
+                    )
+                )}
             </Row>
         </Container>
     </div>
