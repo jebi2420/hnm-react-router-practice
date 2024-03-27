@@ -11,12 +11,13 @@ const ProductAll = () => {
         let response = await fetch(url);
         let data = await response.json();
         setProductList(data);
-        console.log("productList:",productList)
     }
 
     useEffect(()=>{
         getProducts()
     },[])
+
+    console.log("productList:",productList)
 
   return (
     <div>
