@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import ProductAll from './page/ProductAll';
 import Login from './page/Login';
 import ProductDetail from './page/ProductDetail';
+import Navbar from './component/Navbar';
 
 // 1. 전체상품페이지, 로그인, 상품상세페이지
 // 1-1. navigation 바
@@ -17,6 +18,7 @@ import ProductDetail from './page/ProductDetail';
 function App() {
   return (
     <div>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<ProductAll />} />
         <Route path="/login" element={<Login />} />

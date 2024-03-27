@@ -1,0 +1,40 @@
+.login-btn{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-section{
+  display: flex;
+  justify-content: center;
+}
+
+.menu-area{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-list{
+  display: flex;
+  list-style: none;
+}
+
+.menu-list li {
+  padding: 20px;
+}
+
+.search-area{
+  position: absolute;
+  right: 10px;
+}
+
+.search-box{
+  border-bottom: 2px solid black;
+}
+
+.search-box input{
+  padding-left: 6px;
+  padding-bottom: 8px;
+  border: none;
+}
+
