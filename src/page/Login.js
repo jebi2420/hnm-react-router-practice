@@ -2,9 +2,14 @@ import React from 'react'
 import { Container, Button, Form } from 'react-bootstrap';
 
 const Login = () => {
+    const loginUser = (event) => {
+        event.preventDefault(); // submit하고 refresh 막는 함수
+        console.log('login user function issue')
+    }
+
   return (
     <Container>
-      <Form>
+      <Form onSubmit={(event) => loginUser(event)}> 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />

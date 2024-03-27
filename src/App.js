@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
@@ -17,6 +18,8 @@ import Navbar from './component/Navbar';
 // 8. 로그인을 하면 로그아웃이 보이고, 로그아웃을 하면 로그인이 보인다.
 // 9. 상품을 검색할 수 있다.
 function App() {
+  const[authenticate, setAuthenticate] = useState(false); // true면 로그인이 됨, false면 로그인이 안됨
+  
   return (
     <div>
       <Navbar/>
