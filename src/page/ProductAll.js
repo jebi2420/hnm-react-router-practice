@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import ProductCard from '../component/ProductCard';
 
 const ProductAll = () => {
+    // UI그려주는건 useState
+    const [productList, setProductList] = useState([]);
+
+    const getProducts = async() => {
+        // json-server의 Endpoints
+        let url = `http://localhost:5001/products`
+        let response = await fetch(url);
+        let data = await response.json();
+        setProductList(data);
+        console.log("productList:",productList)
+    }
+
+    useEffect(()=>{
+        getProducts()
+    },[])
   return (
     <div>
-      전체상품 페이지
+      <ProductCard />
     </div>
   )
 }
