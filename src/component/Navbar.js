@@ -22,13 +22,17 @@ const Navbar = () => {
         navigate("/login");
     }
 
+    const goToProducts = () => {
+      navigate("/");
+    }
+
   return (
     <div>
-      <div className="login-btn" onClick={goToLogin}>
+      <div className="login-btn btn" onClick={goToLogin}>
           <FontAwesomeIcon icon={faUser} />
           <div>로그인</div>
       </div>
-      <div className="nav-section">
+      <div className="nav-section btn" onClick={goToProducts}>
           <img
             alt=''
             width={100} 
@@ -42,7 +46,7 @@ const Navbar = () => {
         </ul>
         <div className="search-area">
             <div className="search-box">
-                <FontAwesomeIcon icon={faSearch} />
+                <FontAwesomeIcon icon={faSearch} className="btn"/>
                 <input type="search" placeholder='제품 검색'/>
             </div>
         </div>

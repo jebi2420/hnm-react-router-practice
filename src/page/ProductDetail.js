@@ -1,10 +1,34 @@
 import React from 'react'
+import { Container, Row, Col, Dropdown, Button } from 'react-bootstrap';
 
 const ProductDetail = () => {
   return (
-    <div>
-      상품 상세페이지
-    </div>
+    <Container>
+        <Row>
+        <Col lg={6}>
+          <img className='detail-img' alt='' src='https://noona-hnm.netlify.app/ankle-jeans.jpeg' />
+        </Col>
+        <Col lg={6}>
+          <div className="detail-cap">
+            <div className='detail-title'>슬림핏 맘 하이웨이스트 앵클 진</div>
+            <div className='detail-price'>₩29900</div>
+            <div className='detail-choice'>choice</div>
+            <Dropdown className='drop-down'>
+              <Dropdown.Toggle variant="outline-dark" id="dropdown-basic">
+                사이즈 선택
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Button variant="dark" className='add-btn'>추가</Button>
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  
   )
 }
 
