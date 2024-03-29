@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -17,6 +17,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
     ];
 
     const navigate = useNavigate();
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const goToLogin = () => {
         navigate("/login");
@@ -47,11 +48,28 @@ const Navbar = ({authenticate, setAuthenticate}) => {
       }
     }
 
+    const openSidebar = () => {
+      setSidebarOpen(!sidebarOpen)
+    }
+
+    const closeSidebar = () => {
+      setSidebarOpen(sidebarOpen === false)
+    }
+
+    const sideListStyle = {
+      width: sidebarOpen ? "250px" : "0"
+    }
+
   return (
     <div>
-      <div className="login-btn btn" onClick={toggleLoginBtn}>
+      <div className="top-nav">
+        <div className="mobile-toggle">
+          <FontAwesomeIcon icon={faBars} onClick={openSidebar}/>
+        </div>
+        <div className="login-btn btn" onClick={toggleLoginBtn}>
           <FontAwesomeIcon icon={faUser} />
           <div>{authenticate ? '로그아웃' : '로그인'}</div>
+      </div>
       </div>
       <div className="nav-section btn" onClick={goToProducts}>
           <img
@@ -65,6 +83,24 @@ const Navbar = ({authenticate, setAuthenticate}) => {
                 <li>{menu}</li>
             ))}
         </ul>
+
+
+        <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+          <ul className="side-list" style={sideListStyle}>
+            <div className='close-btn'>
+              <FontAwesomeIcon icon={faXmark} onClick={closeSidebar}/>
+            </div>
+            <li>여성</li>
+            <li>Divided</li>
+            <li>신생아/유아</li>
+            <li>H&M Home</li>
+            <li>Sale</li>
+            <li>지속가능성</li>
+          </ul>
+        </div>
+
+
+        
         <div className="search-area">
             <div className="search-box">
                 <FontAwesomeIcon icon={faSearch} className="btn"/>
