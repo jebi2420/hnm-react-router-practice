@@ -8,7 +8,7 @@ const ProductAll = () => {
 
     const getProducts = async() => {
         // json-server의 Endpoints
-        let url = `http://localhost:5001/products`
+        let url = `https://raw.githubusercontent.com/jebi2420/hnm-react-router-practice/main/db.json`
         let response = await fetch(url);
         let data = await response.json();
         setProductList(data);
