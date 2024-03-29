@@ -27,7 +27,7 @@ function App() {
     <div>
       <Navbar/>
       <Routes>
-        <Route path="/" element={<ProductAll />} />
+        <Route path="/products" element={<ProductAll />} />
         <Route path="/login" element={<Login  setAuthenticate={setAuthenticate}/>} />
         <Route path="/product/:id" element={<PrivateRoute authenticate={authenticate} />} />
       </Routes>
