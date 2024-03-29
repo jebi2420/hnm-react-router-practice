@@ -92,3 +92,24 @@
   width: 330px;
   height: 40px;
 }
+
+.tags{
+  display: flex;
+  color: white;
+}
+
+.tag{
+  font-size: 0.7em;
+  border-radius: 5px;
+  background-color: rgb(211, 176, 167);
+  padding: 4px;
+  margin-right: 5px;
+}
+
+.tag:nth-child(2){
+  background-color: rgb(211, 35, 35);
+}
+
+.hidden{
+  display: none;
+}
