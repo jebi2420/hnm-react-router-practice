@@ -5,7 +5,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 
 
-const Navbar = () => {
+const Navbar = ({authenticate, setAuthenticate}) => {
     // 메뉴 리스트 배열 함수로 나타내기
     const menuList = [
         "여성",
@@ -36,11 +36,22 @@ const Navbar = () => {
       }
     }
 
+    const toggleLoginBtn = () => {
+      if(authenticate){
+        console.log("로그인 된 상태-> 로그아웃", authenticate)
+        // 로그아웃 상태로 전환
+        setAuthenticate(false);
+      }else{
+        console.log("로그인 안된 상태", authenticate)
+        navigate("/login");
+      }
+    }
+
   return (
     <div>
-      <div className="login-btn btn" onClick={goToLogin}>
+      <div className="login-btn btn" onClick={toggleLoginBtn}>
           <FontAwesomeIcon icon={faUser} />
-          <div>로그인</div>
+          <div>{authenticate ? '로그아웃' : '로그인'}</div>
       </div>
       <div className="nav-section btn" onClick={goToProducts}>
           <img
