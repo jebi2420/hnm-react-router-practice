@@ -8,7 +8,7 @@ const ProductAll = () => {
 
     const getProducts = async() => {
         // json-server의 Endpoints
-        let url = `https://my-json-server.typicode.com/jebi2420/hnm-react-router-practice`
+        let url = `https://my-json-server.typicode.com/jebi2420/hnm-react-router-practice/products`
         console.log("url:",url)
         let response = await fetch(url);
         let data = await response.json();
