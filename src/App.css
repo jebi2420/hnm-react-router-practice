@@ -10,8 +10,14 @@
 
 .login-btn{
   display: flex;
+  align-items: center;
   justify-content: flex-end;
   cursor: pointer;
+  padding: 0;
+}
+
+.login-btn div{
+  margin-left: 4px;
 }
 
 .nav-section{
