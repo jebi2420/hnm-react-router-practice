@@ -2,20 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import ProductCard from '../component/ProductCard';
 import { useSearchParams } from 'react-router-dom';
+import { productAciton } from "../redux/actions/productAction";
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductAll = () => {
     // UI그려주는건 useState
-    const [productList, setProductList] = useState([]);
+    const productList = useSelector(state => state.product.productList);
     const [query, setQuery]= useSearchParams();
+    const dispatch = useDispatch()
 
-    const getProducts = async() => {
+    const getProducts = () => {
         let searchQuery = query.get('q') || "";
         console.log("searchQ : ",searchQuery)
-        // json-server의 Endpoints
-        let url = `https://my-json-server.typicode.com/jebi2420/hnm-react-router-practice/products?q=${searchQuery}`
-        let response = await fetch(url);
-        let data = await response.json();
-        setProductList(data);
+        dispatch(productAciton.getProducts(searchQuery))
     }
 
     useEffect(()=>{
