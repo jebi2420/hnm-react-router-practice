@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import ProductCard from '../component/ProductCard';
 import { useSearchParams } from 'react-router-dom';
-import { productAciton } from "../redux/actions/productAction";
+import { productAction } from "../redux/actions/productAction";
 import { useDispatch, useSelector } from 'react-redux';
 
 const ProductAll = () => {
@@ -14,7 +14,7 @@ const ProductAll = () => {
     const getProducts = () => {
         let searchQuery = query.get('q') || "";
         console.log("searchQ : ",searchQuery)
-        dispatch(productAciton.getProducts(searchQuery))
+        dispatch(productAction.getProducts(searchQuery))
     }
 
     useEffect(()=>{

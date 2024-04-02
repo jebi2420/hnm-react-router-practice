@@ -1,22 +1,22 @@
 import React from 'react'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Row, Col, Dropdown, Button } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { productAction } from "../redux/actions/productAction";
 
 const ProductDetail = () => {
   let {id} = useParams();
-  const [product, setProduct]= useState(null)
-  const getProductDetail = async() => {
-    let url = `https://my-json-server.typicode.com/jebi2420/hnm-react-router-practice/products/${id}`
-    console.log("id" ,id)
-    let response = await fetch(url);
-    let data = await response.json();
-    console.log("detail data: ", data)
-    setProduct(data)
-  }
-  useEffect(() => {
-    getProductDetail()
-  },[])
+  const product = useSelector((state)=> state.product.selectedItem);
+  const dispatch = useDispatch();
+
+  const getProductDetail = () => {
+    dispatch(productAction.getProductDetail(id));
+  };
+
+  useEffect(()=>{
+    getProductDetail() // 처음 만들어졌을때만 호출 됨
+},[])
 
   return (
     <Container>
