@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
 import { faSearch, faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { authenticateAction } from '../redux/actions/authenticateAction'
 
 
 const Navbar = ({authenticate, setAuthenticate}) => {
@@ -18,10 +20,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
 
     const navigate = useNavigate();
     const [sidebarOpen, setSidebarOpen] = useState(false);
-
-    const goToLogin = () => {
-        navigate("/login");
-    }
+    const dispatch = useDispatch();
 
     const goToProducts = () => {
       navigate("/");
@@ -41,6 +40,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
       if(authenticate){
         console.log("로그인 된 상태-> 로그아웃", authenticate)
         // 로그아웃 상태로 전환
+        dispatch(authenticateAction.logout());
         setAuthenticate(false);
       }else{
         console.log("로그인 안된 상태", authenticate)

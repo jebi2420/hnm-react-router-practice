@@ -4,5 +4,13 @@ function login(id, password) {
         dispatch({type: "LOGIN_SUCCESS", payload:{id, password} })
     }
 }
+function logout() {
+    return (dispatch, getState) => {
+        console.log("logout success action")
+        dispatch({type: "LOGOUT_SUCCESS"})
+    }
+}
 
-export const authenticateAction = {login};
+
+
+export const authenticateAction = {login, logout};
