@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 import { authenticateAction } from '../redux/actions/authenticateAction'
 
 
+
 const Navbar = ({authenticate, setAuthenticate}) => {
     // 메뉴 리스트 배열 함수로 나타내기
     const menuList = [
