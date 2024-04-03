@@ -70,7 +70,7 @@ const productSlice = createSlice({
     })
     .addCase(fetchItem.fulfilled,(state, action)=>{
       state.isLoading=false
-      state.item = action.payload
+      state.selectedItem = action.payload
       state.sizes = action.payload.size
     })
     .addCase(fetchItem.rejected,(state)=>{
