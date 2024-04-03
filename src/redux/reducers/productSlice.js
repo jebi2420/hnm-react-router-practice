@@ -4,12 +4,25 @@ let initialState = {
   productList:[],
   selectedItem: null,
   isLoading: false,
-  error: null
+  error: null,
+  sizes:[]
+
 }
 
 export const fetchProducts = createAsyncThunk('product/fetchAll', async(searchQuery, thunkApi)=>{
   try{
     let url = `https://my-json-server.typicode.com/jebi2420/hnm-react-router-practice/products?q=${searchQuery}`
+    let response = await fetch(url);
+    return await response.json();
+  }catch(error){
+    thunkApi.rejectedWithValue(error.message)
+  }
+  
+})
+
+export const fetchItem = createAsyncThunk('product/fetchOne', async(id, thunkApi)=>{
+  try{
+    let url = `https://my-json-server.typicode.com/jebi2420/hnm-react-router-practice/products/${id}`
     let response = await fetch(url);
     return await response.json();
   }catch(error){
@@ -51,7 +64,18 @@ const productSlice = createSlice({
     .addCase(fetchProducts.rejected,(state, action)=>{
       state.isLoading=false
       state.error= action.payload
+    });
+    builder.addCase(fetchItem.pending,(state)=>{
+      state.isLoading=false
     })
+    .addCase(fetchItem.fulfilled,(state, action)=>{
+      state.isLoading=false
+      state.item = action.payload
+      state.sizes = action.payload.size
+    })
+    .addCase(fetchItem.rejected,(state)=>{
+      state.isLoading=false
+    });
   }
 })
 

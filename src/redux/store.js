@@ -6,6 +6,7 @@ import rootReducer from "./reducers" // index는 기본파일이라 끝까지 �
 import {configureStore} from "@reduxjs/toolkit";
 import productReducer from "./reducers/productSlice"
 import authenticateReducer from "./reducers/authenticateReducer"
+import productSlice from './reducers/productSlice';
 
 
 // let store = createStore(rootReducer, 
@@ -14,7 +15,7 @@ import authenticateReducer from "./reducers/authenticateReducer"
  const store = configureStore({
     reducer:{
         auth : authenticateReducer,
-        product : productReducer
+        product : productSlice
     }
 })
 

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Container, Row, Col, Dropdown, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { productAction } from "../redux/actions/productAction";
+import { fetchItem } from '../redux/reducers/productSlice';
 
 const ProductDetail = () => {
   let {id} = useParams();
@@ -11,7 +12,7 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
 
   const getProductDetail = () => {
-    dispatch(productAction.getProductDetail(id));
+    dispatch(fetchItem(id));
   };
 
   useEffect(()=>{
