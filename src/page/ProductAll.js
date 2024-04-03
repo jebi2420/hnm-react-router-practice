@@ -4,6 +4,7 @@ import ProductCard from '../component/ProductCard';
 import { useSearchParams } from 'react-router-dom';
 import { productAction } from "../redux/actions/productAction";
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from '../redux/reducers/productSlice';
 
 const ProductAll = () => {
     // UI그려주는건 useState
@@ -13,8 +14,7 @@ const ProductAll = () => {
 
     const getProducts = () => {
         let searchQuery = query.get('q') || "";
-        console.log("searchQ : ",searchQuery)
-        dispatch(productAction.getProducts(searchQuery))
+        dispatch(fetchProducts(searchQuery))
     }
 
     useEffect(()=>{
